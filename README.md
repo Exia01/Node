@@ -1,1 +1,1 @@
-# Node
+Refresher on Node JS along with other Node JS resources and projects. 
