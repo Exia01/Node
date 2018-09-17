@@ -1,1 +1,1 @@
-Refresher on Node JS along with other Node JS resources and projects. 
+Refresher on Node.js along with other Node.js resources and projects. 
