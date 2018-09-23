@@ -1,0 +1,22 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Refresher on Node.js along with other Node resources and projects.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Exia01/Node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Exia01/Node/issues"
+  },
+  "homepage": "https://github.com/Exia01/Node#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
