@@ -1,0 +1,16 @@
+body {
+    background: skyblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    padding: 30px;
+}
+form{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2px;
+}
+button{
+    margin: 2px;
+}

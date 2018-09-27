@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="contact.css">
+        <title>Node</title>
+    </head>
+
+    <body>
+        <% include partials/nav.ejs %>
+        <h1>Contact Us!</h1>
+        <p>Fill out your info down bellloooowww</p>
+
+        <form id="contact-form" method="POST" action="/contact">
+            Who do you want to contatct?
+            <input type="text" name="who" value="<%= qs.person %>">
+            Which deparment?
+            <input type="text" name="deparment" value="<%= qs.dept %>">
+            Your email:
+            <input type="email" name="email" id="">
+            <button>Submit</button>
+        </form>
+    </body>
+
+</html>
