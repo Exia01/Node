@@ -5,18 +5,21 @@ $(document).ready(() => {
   $('form').on('submit', () => {
     /*     create a variable name item */
     let item = $('form input');
+    
     let todo = {
       item: item.val()
     };
+    console.log(todo)
     /* We manipulate the data then 
       Make ajax request to server goes to controller
     */
     $.ajax({
       type: 'POST',
-      url: '/todo',
+      // url: '/todo',
       data: todo,
       success: (data) => {
-        location.reload();
+        // location.reload();
+        console.log('Success!')
       }
     });
 

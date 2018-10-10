@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+/* const mongoose = require("mongoose");
 const path     = require("path");
 const fs       = require("fs");
 const models   = path.join(__dirname,"../models");
@@ -11,3 +11,4 @@ fs.readdirSync( models ).forEach( function(file){
 	}	
 });
 
+ */
