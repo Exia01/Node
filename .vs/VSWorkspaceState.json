@@ -11,6 +11,6 @@
     "\\TodoApp\\server\\config",
     "\\TodoApp\\server\\controllers"
   ],
-  "SelectedNode": "\\TodoApp",
+  "SelectedNode": "\\TodoApp\\client\\public\\static\\js\\todo-list.js",
   "PreviewInSolutionExplorer": false
 }

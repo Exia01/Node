@@ -10,8 +10,8 @@ mongoose.connect('mongodb://test:test12345@ds117773.mlab.com:17773/todo-app', {
 let TodoSchema = new mongoose.Schema({
     item: {
         type: String,
-        required: true,
-        minlength: 2,
+        required: [true, "Item/Todo  must be at least two characters"],
+        minlength: [2, "Todo must be at least two characters"],
         maxlength: 64
     }
 });
@@ -23,45 +23,31 @@ let Todo = mongoose.model("Todo", TodoSchema);
 /* This is exporting a function which takes in the app and handles all the requests */
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        res.render('index')
+        res.render('landing')
     })
-
-    /* app.get('/todo', (req, res) => {
-         Todo.find({}, (err, data) => {
-             if (err) { throw err }
-             res.render('todo', { todos: data })
-         })
-     })
-     */
-
-    //app.post('/todo', (req, res) => {
-    //    console.log('hit here')
-    //    /* todolist.js the data is being catch by ajax */
-    //    let newTodo = Todo(req.body).save(function (err, data) {
-    //        if (err) throw err
-    //        res.json(data)
-    //    })
-    //}) 
-
-    app.delete('/todo/:item', (req, res) => {
-        /* takes the data and assigns it as todo */
-        Todo.find({ item: req.params.item.replace(/\-/g, " ") }).deleteOne(function (err, data) {
-            if (err) { throw err }
-            res.json(data)
-        })
-    })
-
-
-
-    /* Testing Ajax Routes, due to replace the regular routes */
 
 
     app.get('/todo', (req, res) => {
         res.render('todo-ajax')
     })
 
+
+    /* API Semi-restful setup */
     app.get('/api/todo', (req, res) => {
         Todo.find({}, (err, data) => {
+            //console.log(`coming directly from the post ${err}`)
+            //console.log(`coming directly from the post ${data}`)
+            if (err) {
+                res.json(err)
+            } else {
+                res.json(data)
+            }
+        })
+    })
+
+
+    app.post('/api/todo', (req, res) => {
+        let newTodo = Todo(req.body).save((err, data) => {
             if (err) {
                 res.json(err)
             } else {
@@ -71,29 +57,12 @@ module.exports = (app) => {
         })
     })
 
-
-
-    app.post('/todo', (req, res) => {
-        /* todolist.js the data is being catch by ajax */
-        let newTodo = Todo(req.body).save( (err, data) => {
-            console.log('====================================');
-            console.log(`This is from the data: ${data}`);
-            console.log('====================================');
-            console.log('====================================');
-            console.log(`This is from the err: ${err}`);
-            console.log('====================================');
-            if (err) {
-                res.json(err)
-            } res.json(data)
-            
-        })
-    })
-
-    app.delete('/todo/:item', (req, res) => {
-        /* takes the data and assigns it as todo */
-        Todo.find({
-            item: req.params.item.replace(/\-/g, " ")
-        }).deleteOne(function (err, data) {
+    app.delete('/api/todo/:_id', (req, res) => {
+        //console.log(req.params._id)
+        let id = req.params._id
+        Todo.findOne({
+            _id: id
+        }).deleteOne( (err, data) => {
             if (err) {
                 res.json(err)
             } else {
