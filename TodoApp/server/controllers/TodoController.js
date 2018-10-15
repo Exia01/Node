@@ -9,7 +9,7 @@ class TodoController {
             } else {
                 return res.status(404).json({
                     "error": err,
-                    "message": "Failed to find tasks"
+                    "message": "Failed to find todo items"
                 });
             }
         });
@@ -31,7 +31,7 @@ class TodoController {
         });
     }
 
-    /*Delete Todo ...> ln 36/38 might be params._id */
+    /*Delete Todo */
     delete(req, res) {
         Todo.findOne({ _id: req.params.id }, (err, todo) => {
             if (todo) {
@@ -42,7 +42,7 @@ class TodoController {
                             "message": "Failed to remove todo item " + req.params.id
                         });
                     } else {
-                        return res.json(task);
+                        return res.status(200).json(todo);
                     }
                 });
             } else {

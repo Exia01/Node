@@ -2,7 +2,7 @@ const path = require('path');
 const TodoController = require('../controllers/TodoController.js');
 
 
-/* This is exporting a function which takes in the app and handles all the requests */
+/* Exporting function which takes in the app (server.js :ln 22) handles all the requests */
 module.exports = (app) => {
     app.get('/', (req, res) => {
         res.render('landing')
@@ -14,9 +14,9 @@ module.exports = (app) => {
 
 
     /* API Semi-restful setup */
-    app.get('/api/todo', TodoController.all);
-    app.post('/api/todo', TodoController.create);
-    app.delete('/api/todo/:id', TodoController.delete); 
+    app.get('/api/todos', TodoController.all);
+    app.post('/api/todos', TodoController.create);
+    app.delete('/api/todos/:id', TodoController.delete);
 
     /* Catch all */
     app.all('*', (req, res) => {

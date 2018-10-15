@@ -5,7 +5,7 @@ $(document).ready(() => {
     let todos;
     $.ajax({
         type: 'get',
-        url: '/api/todo',
+        url: '/api/todos',
         success: (data) => {
             todos = data
             for (let tasks of todos) {
@@ -35,25 +35,13 @@ $(document).ready(() => {
         */
         $.ajax({
             type: 'POST',
-            url: '/api/todo',
+            url: '/api/todos',
             data: todo,
-            /* The success only recieves "data" back, I was unable to separate err, from data*/
             success: function (data) {
-                if (!Object.keys(data).includes('errors') || !Object.keys(data).includes('error')) {
-                    $('#render').append(`<li id="${data._id}"> ${data.item}</li>`);
-                    $('form').trigger('reset');
-                    $('#errors').hide()
-                } else {
-                    function* generate(data) {
-                        yield data;
-                    } for (let key of generate(data)) {
-                        console.log(key)
-                        //console.log(key.errors.item.message);
-                        $('#errors').append(`<h2>${key.errors.item.message}</h2`);
-                        $('#errors').show()
-                    }
+                $('#render').append(`<li id="${data._id}"> ${data.item}</li>`);
+                $('form').trigger('reset');
+                $('#errors').hide()
 
-                }
                 /*
                 console.log(data)
                 console.log(JSON.stringify(data))
@@ -61,10 +49,17 @@ $(document).ready(() => {
                 */
 
             },
-            error: function (err, data) {
-                console.log(err)
-                console.log(data)
-                //console.log('Error ' + err.responseText);
+            error: function (err) {
+                let message = err.responseJSON
+                function* generate(message) {
+                    yield message;
+                    //console.log(message)
+                } for (let key of generate(message)) {
+                    //console.log(key.error.item.message);
+                    $('#errors').html(`<h2>${key.error.item.message}</h2`);
+                    $('#errors').show()
+                }
+
             },
 
         })
@@ -86,12 +81,12 @@ $(document).ready(() => {
 
         $.ajax({
             type: 'delete',
-            url: '/api/todo/' + _id,
+            url: '/api/todos/' + _id,
             success: function (data) {
                 console.log('Deleted')
             },
-            error: function (err, data) {
-                alert("error " + err.responsetext);
+            error: function (err) {
+                console.log(err)
             }
         });
 
