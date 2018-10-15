@@ -13,9 +13,15 @@ $(document).ready(() => {
                 $('#render').append(`<li id="${tasks._id}"> ${tasks.item}</li>`);
             }
         },
-        error: function (err, data) {
-            console.log("Error " + err.responseText);
-        },
+        error: function (err) {
+            let message = err.responseJSON
+            function* generate(message) {
+                yield message;
+            } for (let key of generate(message)) {
+                $('#errors').html(`<h2>${key.error.item.message}</h2`);
+                $('#errors').show()
+            }
+        }
 
     })
 
@@ -60,7 +66,7 @@ $(document).ready(() => {
                     $('#errors').show()
                 }
 
-            },
+            }
 
         })
 
@@ -86,7 +92,13 @@ $(document).ready(() => {
                 console.log('Deleted')
             },
             error: function (err) {
-                console.log(err)
+                let message = err.responseJSON
+                function* generate(message) {
+                    yield message;
+                } for (let key of generate(message)) {
+                    $('#errors').html(`<h2>${key.error.item.message}</h2`);
+                    $('#errors').show()
+                }
             }
         });
 
