@@ -14,8 +14,6 @@ $(document).ready(() => {
             }
         },
         error: function (err, data) {
-            console.log(data)
-            console.log(err)
             console.log("Error " + err.responseText);
         },
 
@@ -41,7 +39,7 @@ $(document).ready(() => {
             data: todo,
             /* The success only recieves "data" back, I was unable to separate err, from data*/
             success: function (data) {
-                if (!Object.keys(data).includes('errors')) {
+                if (!Object.keys(data).includes('errors') || !Object.keys(data).includes('error')) {
                     $('#render').append(`<li id="${data._id}"> ${data.item}</li>`);
                     $('form').trigger('reset');
                     $('#errors').hide()
@@ -65,7 +63,8 @@ $(document).ready(() => {
             },
             error: function (err, data) {
                 console.log(err)
-                console.log('Error ' + err.responseText);
+                console.log(data)
+                //console.log('Error ' + err.responseText);
             },
 
         })

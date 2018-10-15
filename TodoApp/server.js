@@ -19,7 +19,7 @@ app.use(favicon(path.join(__dirname + '/client/public/static/favicon.png')));
 
 /* Importing the routes as a controller,passing in express "app" */
 // require("./server/config/mongooose.js");
-// require("./server/config/mongooose.js");
+require("./server/config/mongooose.js");
 require('./server/config/routes')(app);
 /* imports mongoose from the mongoose.js */
 
