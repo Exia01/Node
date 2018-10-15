@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TodoApp",
+    "\\TodoApp\\client\\public",
+    "\\TodoApp\\client\\public\\static\\css",
+    "\\TodoApp\\server\\models"
   ],
+  "SelectedNode": "\\TodoApp",
   "PreviewInSolutionExplorer": false
 }
