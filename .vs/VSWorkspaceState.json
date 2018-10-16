@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\testApp\\public\\static",
+    "\\testApp\\public\\views",
     "\\TodoApp",
+    "\\TodoApp\\client",
     "\\TodoApp\\client\\public",
+    "\\TodoApp\\client\\public\\static",
     "\\TodoApp\\client\\public\\static\\css",
-    "\\TodoApp\\server\\models"
+    "\\TodoApp\\client\\public\\static\\imgs",
+    "\\TodoApp\\client\\public\\views"
   ],
-  "SelectedNode": "\\TodoApp",
+  "SelectedNode": "\\TodoApp\\server.js",
   "PreviewInSolutionExplorer": false
 }
