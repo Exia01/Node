@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/client/public/views'));
 app.use(express.static(path.join(__dirname, 'client/public/static/css')));
+app.use(express.static(path.join(__dirname, 'client/public/static/imgs')));
 app.use(express.static(path.join(__dirname, 'client/public/static/js')));
 app.use(favicon(path.join(__dirname + '/client/public/static/favicon.png')));
 
