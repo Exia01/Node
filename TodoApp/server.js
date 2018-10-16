@@ -8,7 +8,7 @@ const PORT = 8000;
 
 
 /* Templating engine, views and static files  */
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/client/public/views'));
 app.use(express.static(path.join(__dirname, 'client/public/static/css')));
