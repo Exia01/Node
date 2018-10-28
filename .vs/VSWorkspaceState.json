@@ -5,12 +5,10 @@
     "\\TodoApp\\client",
     "\\TodoApp\\client\\public",
     "\\TodoApp\\client\\public\\static",
-    "\\TodoApp\\client\\public\\static\\css",
-    "\\TodoApp\\client\\public\\static\\imgs",
+    "\\TodoApp\\client\\public\\static\\js",
     "\\TodoApp\\client\\public\\views",
-    "\\TodoApp\\server",
-    "\\TodoApp\\server\\models"
+    "\\TodoApp\\server"
   ],
-  "SelectedNode": "\\TodoApp\\server.js",
+  "SelectedNode": "\\TodoApp\\client\\public\\static\\js\\main.js",
   "PreviewInSolutionExplorer": false
 }
